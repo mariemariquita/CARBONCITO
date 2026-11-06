@@ -1,0 +1,81 @@
+:root {
+
+--bg-color: #111111;
+--text-color: #e0ff00;
+--accent-color: #f0f0f0;
+
+--text-font-family: "cofo-sans-mono-variable", sans-serif;
+--text-font-weight: 550;
+--text-font-style: normal;
+--text-font-size: 1rem;
+
+--display-font-family: "cofo-sans-mono-variable", sans-serif;
+--display-font-weight: 700;
+--display-font-style: normal;
+--display-font-size: 3.3rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  font-family: var(--display-font-family);
+  font-weight: var(--display-font-weight);
+}
+
+.mitad {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(2rem, 5vw, 5rem);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.izquierda {
+  background: #000;
+  color: #e0ff00;
+}
+
+.derecha {
+  background: #e0ff00;
+  color: #000;
+}
+
+
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+  }
+}
+
+.mitad {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.izquierda {
+  background: #e0ff00;
+  color: #000;
+}
+
+.derecha {
+  background: #000;
+  color: #e0ff00;
+}
+
+/* Hover en CASOS: se invierten las dos mitades */
+body:has(.derecha:hover) .derecha {
+  background: #e0ff00;
+  color: #000;
+}
+
+body:has(.derecha:hover) .izquierda {
+  background: #000;
+  color: #e0ff00;
+}
