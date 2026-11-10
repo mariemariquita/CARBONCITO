@@ -22,7 +22,7 @@ window.SKETCH_CONFIG = {
   overflowWords: 3,
   overflowRows: 3,
   scrambleIntervalMs: 300,
-  textOpacity: 0.5,
+  textOpacity: 0.8,
   scrambleChance: 0.72,
   scrambleCharacters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 };

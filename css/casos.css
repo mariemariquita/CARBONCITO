@@ -1,0 +1,17 @@
+:root {
+
+--bg-color: #111111;
+--text-color: #e0ff00;
+--accent-color: #f0f0f0;
+
+--text-font-family: "cofo-sans-mono-variable", sans-serif;
+--text-font-weight: 550;
+--text-font-style: normal;
+--text-font-size: 1rem;
+
+--display-font-family: "cofo-sans-mono-variable", sans-serif;
+--display-font-weight: 700;
+--display-font-style: normal;
+--display-font-size: 3.3rem;
+}
+
