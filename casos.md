@@ -192,6 +192,14 @@ Murió en un hospital de Conroe, Texas, de insuficiencia cardíaca congestiva. I
 
 Geraldo llegó a Estados Unidos en 1996 y vivió más de veinte años en Rochester, Nueva York, donde crió a sus cuatro hijos. ICE lo arrestó el 14 de julio de 2025 en una operación planificada y desde septiembre estaba en Camp East Montana, en El Paso, Texas. Vivía con enfermedades mentales. Según reportes de prensa, llegó a golpearse la cabeza contra una pared por no poder pagar las llamadas para hablar con sus hijos. El 3 de enero de 2026 murió allí. Testigos relataron que lo oyeron decir *“no puedo respirar”* mientras lo sujetaban los guardias. ICE sostuvo que intentó quitarse la vida, pero el médico forense de El Paso dictaminó homicidio por asfixia por la compresión del cuello y el torso. Las autoridades lo describieron como delincuente sexual registrado, algo que su hija rechaza: ella lo recuerda como un buen padre.
 
+**Carlos Josue Marchena-Marchena**
+
+- **Edad:** 36
+- **Nacionalidad:** costarricense
+- **Fecha de fallecimiento:** 18 de septiembre de 2026
+
+Carlos era padre de cuatro hijos, trabajaba como conductor de un servicio de transporte y vivía con diabetes tipo 1. ICE lo detuvo en enero de 2026 en Michigan tras un arresto por agresión. Según su hermana, Franciny, pidió fianza y la deportación voluntaria, pero se las negaron. Tras ser trasladado al Winn Correctional Center, en Luisiana, dijo que tenía dolor en el pecho, que casi no le daban de comer ni beber y que nadie le revisaba el azúcar. Un vecino de celda contó que recibía insulina de forma irregular. Horas antes de morir, su novia, Ana Leon Castro, dijo que él la llamó para decirle que las pastillas no ayudaban: *“Lo único que le dieron fue una pastilla”*. Murió el 18 de septiembre en el Winn Parish Medical Center. ICE sostiene que *“recibió atención médica adecuada”*, y la causa de muerte sigue pendiente.
+
 # 2025
 
 **Nenko Stanev Gantchev**
@@ -346,4 +354,138 @@ Murió en un hospital de Florence, Arizona. ICE sospecha complicaciones pulmonar
 
 Llevaba sólo cinco días bajo custodia cuando lo encontraron ahorcado en una regadera del Moshannon Valley Processing Center, en Pensilvania. El forense dictaminó suicidio, aunque tenía manos y pies atados. La investigación sigue abierta.
 
-**Tien Xuan
+//casos que faltaban
+**Tien Xuan Phan**
+
+
+- **Edad:** 55
+- **Nacionalidad:** vietnamita
+- **Fecha de fallecimiento:** 19 de julio de 2025
+
+
+Lo hospitalizaron un día antes de morir en Karnes City, Texas, por convulsiones, vómitos y falta de respuesta. Había estado en el centro de procesamiento de ese condado.
+
+
+**Isidro Perez**
+
+
+- **Edad:** 75
+- **Nacionalidad:** cubana
+- **Fecha de fallecimiento:** 26 de junio de 2025
+
+
+Se quejó de dolor en el pecho en el centro Krome, en Miami. Al principio respondió a la reanimación, pero murió después en el hospital.
+
+
+**Johnny Noviello**
+
+
+- **Edad:** 49
+- **Nacionalidad:** canadiense
+- **Fecha de fallecimiento:** 23 de junio de 2025
+
+
+Lo encontraron sin respuesta en el Federal Detention Center de Miami. Le practicaron reanimación y descargas de desfibrilador, pero murió allí.
+
+
+**Jesus Molina-Veya**
+
+
+- **Edad:** 45
+- **Nacionalidad:** mexicana
+- **Fecha de fallecimiento:** 7 de junio de 2025
+
+
+Lo hallaron sin respuesta, con una tela atada al cuello y a la litera superior, y murió en un hospital de Americus, Georgia. La investigación continúa.
+
+
+**Abelardo Avelleneda-Delgado**
+
+
+- **Edad:** 68
+- **Nacionalidad:** mexicana
+- **Fecha de fallecimiento:** 5 de mayo de 2025
+
+
+Murió durante el traslado de la cárcel del condado de Lowndes, en Valdosta, Georgia, rumbo al Stewart Detention Center. Quedó sin respuesta en el trayecto.
+
+
+**Marie Ange Blaise**
+
+
+- **Edad:** 44
+- **Nacionalidad:** haitiana
+- **Fecha de fallecimiento:** 25 de abril de 2025
+
+
+Murió tras 32 días de detención en el Broward Transitional Center, en Pompano Beach, Florida, debido a una falla cardiovascular por hipertensión. Los registros muestran que su presión arterial y su función renal fueron motivo de alerta en repetidas revisiones.
+
+
+**Nhon Ngoc Nguyen**
+
+
+- **Edad:** 55
+- **Nacionalidad:** vietnamita
+- **Fecha de fallecimiento:** 16 de abril de 2025
+
+
+Tenía demencia, agitación y una úlcera por presión. Necesitaba ayuda total para sus actividades diarias. Pasó sus últimos días en cuidados paliativos en un hospital de El Paso, Texas.
+
+
+**Brayan Rayo-Garzon**
+
+
+- **Edad:** 27
+- **Nacionalidad:** colombiana
+- **Fecha de fallecimiento:** 8 de abril de 2025
+
+
+Lo encontraron sin respuesta en su celda de la cárcel del condado de Phelps, en Rolla, Misuri, con una manta alrededor del cuello. Tenía antecedentes de soplo cardíaco y ansiedad. En la sala de emergencias dio positivo a tuberculosis y COVID.
+
+
+**Juan Alexis Tineo-Martinez**
+
+
+- **Edad:** 44
+- **Nacionalidad:** dominicana
+- **Fecha de fallecimiento:** 23 de febrero de 2025
+
+
+Murió en el Centro Médico de San Juan, Puerto Rico, tras ser diagnosticado con un pulmón colapsado. ICE vinculó el caso con una interdicción de narcotráfico y contrabando de personas. La toxicología reveló una cantidad extremadamente alta de cocaína en su sangre.
+
+
+**Maksym Chernyak**
+
+
+- **Edad:** 45
+- **Nacionalidad:** ucraniana
+- **Fecha de fallecimiento:** 20 de febrero de 2025
+
+
+Murió de un derrame cerebral en un hospital de Miami, después de pasar por el centro Krome.
+
+
+**Serawit Gezahegn Dejene**
+
+
+- **Edad:** 45
+- **Nacionalidad:** etíope
+- **Fecha de fallecimiento:** 29 de enero de 2025
+
+
+Los médicos del Banner University Medical Center, en Phoenix, le encontraron neumonía, un posible linfoma, sepsis, tuberculosis y accidente cerebrovascular. Sus familiares tuvieron que decidir retirarle el soporte vital. Antes había estado en el Eloy Detention Center.
+
+
+**Genry Ruiz Guillen**
+
+
+- **Edad:** 29
+- **Nacionalidad:** hondureña
+- **Fecha de fallecimiento:** 23 de enero de 2025
+
+
+Lo trataron por un trastorno catatónico y por rabdomiólisis, y lo trasladaron a atención psiquiátrica antes de devolverlo al hospital Larkin Community, en Hialeah, Florida, donde murió. Miami New Times lo vincula con complicaciones de un trastorno esquizoafectivo.
+
+
+
+

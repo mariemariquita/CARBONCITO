@@ -1,7 +1,7 @@
-const WAVE_THRESH = 3;
-const CHAR_MULT = 3;
-const ANIM_STEP = 25;
-const WAVE_BUF = 5;
+const WAVE_THRESH = 1; // Grosor del borde delantero de la onda, en caracteres.
+const CHAR_MULT = 1; // Distancia que avanza la onda en cada paso, en caracteres.
+const ANIM_STEP = 60; // Intervalo entre pasos en ms; aumentarlo ralentiza la onda.
+const WAVE_BUF = 1; // Estela detras del borde delantero, en caracteres.
 const CHAR_DELAY = 1.2;
 const LINE_DELAY = 2.5;
 const CHAR_JITTER = 1000;
@@ -113,42 +113,32 @@ function draw() {
   cleanupWaves(now);
 
   for (const word of words) {
-    const isInWave = waves.some((wave) => {
-      if (word.line !== wave.line) {
-        return false;
-      }
-
-      const horizontalDistance = wave.originX < word.x
-        ? word.x - wave.originX
-        : wave.originX > word.x + word.width
-          ? wave.originX - (word.x + word.width)
-          : 0;
-      const distanceInCharacters = horizontalDistance / settings.characterWidth;
-      const waveCharacters = Math.floor((now - wave.startedAt) / ANIM_STEP) * CHAR_MULT;
-      return distanceInCharacters >= waveCharacters - WAVE_BUF &&
-        distanceInCharacters <= waveCharacters + WAVE_THRESH;
-    });
-
-    if (isInWave) {
-      drawWaveWord(word);
+    if (waves.length) {
+      drawWaveWord(word, now);
     } else {
       drawingContext.fillText(word.text, word.x, word.y, word.width);
     }
   }
 }
 
-function drawWaveWord(word) {
+function drawWaveWord(word, now) {
   const originalCharacters = Array.from(word.text);
   const scrambledCharacters = Array.from(getScrambledWord(word));
-  let prefix = "";
 
-  for (let index = 0; index < scrambledCharacters.length; index += 1) {
-    const character = scrambledCharacters[index];
+  for (let index = 0; index < word.characters.length; index += 1) {
+    const position = word.characters[index];
+    const isInWave = waves.some((wave) => {
+      const radius = Math.floor((now - wave.startedAt) / ANIM_STEP) *
+        CHAR_MULT * settings.characterWidth;
+      const distance = Math.hypot(position.centerX - wave.originX, position.centerY - wave.originY);
+      return distance >= Math.max(0, radius - WAVE_BUF * settings.characterWidth) &&
+        distance <= radius + WAVE_THRESH * settings.characterWidth;
+    });
+    const character = isInWave ? scrambledCharacters[index] : originalCharacters[index];
     drawingContext.globalAlpha = character === originalCharacters[index]
       ? window.SKETCH_CONFIG.textOpacity
       : 1;
-    drawingContext.fillText(character, word.x + drawingContext.measureText(prefix).width, word.y);
-    prefix += character;
+    drawingContext.fillText(character, position.x, word.y);
   }
 
   drawingContext.globalAlpha = window.SKETCH_CONFIG.textOpacity;
@@ -162,13 +152,13 @@ function updateWaveHover() {
   const hoveredWord = hoveredLine?.find((word) => mouseX >= word.x && mouseX <= word.x + word.width) || null;
 
   if (hoveredWord && (hoveredWord !== previousHoveredWord || waves.length === 0)) {
-    const maxWaveDistance = Math.max(
-      mouseX - hoveredLine[0].x,
-      hoveredLine[hoveredLine.length - 1].x + hoveredLine[hoveredLine.length - 1].width - mouseX
+    const maxWaveDistance = Math.hypot(
+      Math.max(mouseX, width - mouseX),
+      Math.max(mouseY, height - mouseY)
     );
-    const maxWaveCharacters = maxWaveDistance / settings.characterWidth;
-    const duration = Math.ceil(maxWaveCharacters / CHAR_MULT) * ANIM_STEP;
-    waves.push({ line: hoveredLine, originX: mouseX, startedAt: millis(), duration });
+    const maxWaveCharacters = maxWaveDistance / (CHAR_MULT * settings.characterWidth);
+    const duration = Math.ceil(maxWaveCharacters) * ANIM_STEP;
+    waves.push({ originX: mouseX, originY: mouseY, startedAt: millis(), duration });
   }
   previousHoveredWord = hoveredWord;
 }
@@ -248,6 +238,7 @@ function layoutWords() {
         width: boundedWidth,
         index: line.length,
         line,
+        characters: [],
         scrambledText: "",
         scrambledAt: -Infinity
       });
@@ -261,6 +252,17 @@ function layoutWords() {
     for (const word of line) {
       word.x = x;
       word.y = baseline;
+      let prefix = "";
+      word.characters = Array.from(word.text, (character) => {
+        const characterX = word.x + drawingContext.measureText(prefix).width;
+        prefix += character;
+        const metrics = drawingContext.measureText(character);
+        return {
+          x: characterX,
+          centerX: characterX + metrics.width / 2,
+          centerY: word.y + (metrics.actualBoundingBoxDescent - metrics.actualBoundingBoxAscent) / 2
+        };
+      });
       words.push(word);
       x += word.width + settings.wordGap;
     }
