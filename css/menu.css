@@ -58,7 +58,7 @@ body {
 .mitad {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
+/* acá inicia*/
 .izquierda {
   background: #e0ff00;
   color: #000;
@@ -78,4 +78,17 @@ body:has(.derecha:hover) .derecha {
 body:has(.derecha:hover) .izquierda {
   background: #000;
   color: #e0ff00;
+}
+/* acá termina uno */
+
+.izquierda,
+.derecha {
+  background: #000;
+  color: #e0ff00;
+}
+
+/* Hover en CASOS: se invierten las dos mitades */
+.mitad:hover {
+  background: #e0ff00;
+  color: #000;
 }
