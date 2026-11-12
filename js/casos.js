@@ -49,6 +49,14 @@ const caseImageOverrides = new Map([
 const grid = document.querySelector("#case-grid");
 let activeItem = null;
 let masonry;
+let activeTransition = null;
+let transitioningItems = [];
+let transitioningElements = [];
+const gsap = window.gsap;
+
+if (typeof gsap !== "object") {
+  console.error("No se pudo cargar GSAP; los casos cambiarán de estado sin animación.");
+}
 
 function getTokens(value) {
   return value
@@ -114,23 +122,22 @@ function createCaseCard(record, imageMatch) {
 
   item.append(button, createMetadata(record));
   button.addEventListener("click", () => toggleCase(item));
-  item.addEventListener("transitionend", (event) => {
-    if (event.propertyName === "width") {
-      layoutMasonry();
-    }
-    setTimeout(() => {
-      if (item.classList.contains("is-active")) {
-        item.scrollIntoView({ behavior: "smooth", block: "center" });
-        layoutMasonry();
-      }
-    }, 50);
-  });
   grid.append(item);
   return item;
 }
 
 function toggleCase(selectedItem) {
-  const shouldActivate = selectedItem !== activeItem;
+  const previousItem = activeItem;
+  const nextItem = selectedItem === previousItem ? null : selectedItem;
+  const items = [...new Set([...transitioningItems, previousItem, selectedItem].filter(Boolean))];
+  const elements = items.flatMap((item) => [item, item.querySelector(".case-toggle")]);
+  const startingWidths = new Map(
+    elements.map((element) => [element, element.getBoundingClientRect().width])
+  );
+
+  activeTransition?.kill();
+  activeTransition = null;
+  gsap?.set(elements, { clearProps: "width" });
 
   if (activeItem) {
     activeItem.classList.remove("is-active");
@@ -138,18 +145,53 @@ function toggleCase(selectedItem) {
     activeItem.querySelector(".case-details").hidden = true;
   }
 
-  activeItem = shouldActivate ? selectedItem : null;
+  activeItem = nextItem;
   if (activeItem) {
     activeItem.classList.add("is-active");
     activeItem.querySelector(".case-toggle").setAttribute("aria-expanded", "true");
     activeItem.querySelector(".case-details").hidden = false;
   }
 
-  layoutMasonry();
+  if (!gsap || !items.length) {
+    layoutMasonry();
+    if (activeItem) {
+      // activeItem.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    return;
+  }
+
+  const targetWidths = elements.map((element) => getComputedStyle(element).width);
+  gsap.set(elements, {
+    width: (index) => `${startingWidths.get(elements[index])}px`
+  });
+  transitioningItems = items;
+  transitioningElements = elements;
+  activeTransition = gsap.timeline({
+    onUpdate: layoutMasonryNow,
+    onComplete: () => {
+      gsap.set(elements, { clearProps: "width" });
+      transitioningItems = [];
+      transitioningElements = [];
+      activeTransition = null;
+      layoutMasonryNow();
+      if (activeItem === selectedItem) {
+        // selectedItem.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  });
+  activeTransition.to(elements, {
+    width: (index) => targetWidths[index],
+    duration: 0.45,
+    ease: "power2.inOut"
+  }, 0);
 }
 
 function layoutMasonry() {
   requestAnimationFrame(() => masonry?.layout());
+}
+
+function layoutMasonryNow() {
+  masonry?.layout();
 }
 
 function parseCaseRecords(contents) {
@@ -214,6 +256,45 @@ function matchImage(record, assignedImages) {
   return bestScore >= 2 && !hasTie ? bestImage : null;
 }
 
+function shuffle(items) {
+  const shuffledItems = [...items];
+  for (let index = shuffledItems.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffledItems[index], shuffledItems[swapIndex]] = [
+      shuffledItems[swapIndex],
+      shuffledItems[index]
+    ];
+  }
+  return shuffledItems;
+}
+
+function randomizeCaseOrder(matchedRecords, fallbackRecords) {
+  const shuffledMatched = shuffle(matchedRecords);
+  const shuffledFallbacks = shuffle(fallbackRecords);
+  const gapCount = shuffledMatched.length + 1;
+  const fallbacksPerGap = Math.floor(shuffledFallbacks.length / gapCount);
+  const extraFallbacks = shuffledFallbacks.length % gapCount;
+  const gapSizes = Array(gapCount).fill(fallbacksPerGap);
+
+  for (const gapIndex of shuffle(Array.from({ length: gapCount }, (_, index) => index))
+    .slice(0, extraFallbacks)) {
+    gapSizes[gapIndex] += 1;
+  }
+
+  const orderedRecords = [];
+  let fallbackIndex = 0;
+  for (let gapIndex = 0; gapIndex < gapCount; gapIndex += 1) {
+    for (let count = 0; count < gapSizes[gapIndex]; count += 1) {
+      orderedRecords.push(shuffledFallbacks[fallbackIndex]);
+      fallbackIndex += 1;
+    }
+    if (gapIndex < shuffledMatched.length) {
+      orderedRecords.push(shuffledMatched[gapIndex]);
+    }
+  }
+  return orderedRecords;
+}
+
 function fillCaseRecords(records) {
   const assignedImages = new Set();
   const matchedRecords = [];
@@ -229,19 +310,7 @@ function fillCaseRecords(records) {
     }
   }
 
-  const orderedRecords = [];
-  let matchedIndex = 0;
-  for (let fallbackIndex = 0; fallbackIndex < fallbackRecords.length; fallbackIndex += 1) {
-    const matchedTarget = Math.round(
-      ((fallbackIndex + 1) * matchedRecords.length) / (fallbackRecords.length + 1)
-    );
-    while (matchedIndex < matchedTarget) {
-      orderedRecords.push(matchedRecords[matchedIndex]);
-      matchedIndex += 1;
-    }
-    orderedRecords.push(fallbackRecords[fallbackIndex]);
-  }
-  orderedRecords.push(...matchedRecords.slice(matchedIndex));
+  const orderedRecords = randomizeCaseOrder(matchedRecords, fallbackRecords);
   orderedRecords.forEach((record) => createCaseCard(...record));
   masonry?.reloadItems();
   layoutMasonry();
@@ -253,13 +322,22 @@ if (typeof window.Masonry === "function") {
     columnWidth: ".grid-sizer",
     percentPosition: true,
     horizontalOrder: true,
-    transitionDuration: "250ms"
+    transitionDuration: "0s"
   });
 } else {
   console.error("No se pudo cargar Masonry; los casos se mostrarán sin el reacomodo masonry.");
 }
 
-window.addEventListener("resize", layoutMasonry);
+window.addEventListener("resize", () => {
+  activeTransition?.kill();
+  activeTransition = null;
+  if (transitioningElements.length) {
+    gsap?.set(transitioningElements, { clearProps: "width" });
+    transitioningItems = [];
+    transitioningElements = [];
+  }
+  layoutMasonry();
+});
 
 fetch("./casos.md")
   .then((response) => {
