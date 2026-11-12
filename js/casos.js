@@ -67,12 +67,6 @@ function createMetadata(record) {
   heading.textContent = record?.name || "Información del caso";
   details.append(heading);
 
-  if (record?.year) {
-    const year = document.createElement("p");
-    year.textContent = record.year;
-    details.append(year);
-  }
-
   if (record && Object.keys(record.metadata).length) {
     const list = document.createElement("dl");
     for (const [label, value] of Object.entries(record.metadata)) {
@@ -124,6 +118,12 @@ function createCaseCard(record, imageMatch) {
     if (event.propertyName === "width") {
       layoutMasonry();
     }
+    setTimeout(() => {
+      if (item.classList.contains("is-active")) {
+        item.scrollIntoView({ behavior: "smooth", block: "center" });
+        layoutMasonry();
+      }
+    }, 50);
   });
   grid.append(item);
   return item;
