@@ -4,12 +4,9 @@
   --accent-color: #f0f0f0;
   --text-font-family: "cofo-sans-mono-variable", sans-serif;
   --text-font-weight: 300;
-  --text-font-size: 1rem;
   --display-font-family: "cofo-sans-mono-variable", sans-serif;
   --display-font-weight: 700;
-  --display-font-size: 10rem;
 }
-
 
 * {
   box-sizing: border-box;
@@ -25,15 +22,11 @@ body {
   font-weight: var(--text-font-weight);
 }
 
-body {
-  padding: 0;
-}
-
 .site-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1rem 1rem;
+  padding: 1rem;
 }
 
 .site-header a {
@@ -67,15 +60,20 @@ body {
 }
 
 .case-item {
-  float: left;
   position: relative;
   aspect-ratio: 340 / 440;
   overflow: hidden;
-  border: 0px solid var(--bg-color);
 }
 
 .case-item.is-active {
   z-index: 1;
+  width: 40%;
+}
+
+.case-item figure {
+  position: absolute;
+  inset: 0;
+  margin: 0;
 }
 
 .case-toggle {
@@ -86,6 +84,7 @@ body {
   height: 100%;
   padding: 0;
   overflow: hidden;
+  overflow-y: auto;
   border: 0;
   background: #222;
   color: var(--accent-color);
@@ -93,13 +92,13 @@ body {
   text-align: left;
   overflow-y: auto;
 }
-
 .case-toggle img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: filter 200ms ease;
+  image-rendering: pixelated;
 }
 
 .case-toggle:hover img,
@@ -114,6 +113,7 @@ body {
   left: 0;
   padding: 0.6rem;
   background: linear-gradient(transparent, rgb(0 0 0 / 85%));
+  color: var(--accent-color);
   font-size: clamp(0.65rem, 1.1vw, 0.95rem);
   opacity: 0;
   transition: opacity 200ms ease;
@@ -125,7 +125,6 @@ body {
 }
 
 .case-details {
-  position: relative;
   padding: clamp(0.5rem, 1.5vw, 1rem);
   overflow: auto;
   background: var(--bg-color);
@@ -135,48 +134,36 @@ body {
   scrollbar-color: var(--bg-color) transparent;
   height: 100%;
 }
-/*nombre de persona*/
+
 .case-details h2 {
   margin: 0 0 0.6rem;
-  font-size: 2rem;
+  font-family: var(--display-font-family);
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-weight: var(--display-font-weight);
 }
-/*bullet points de caso*/
-.case-details dl {
+
+.case-metadata {
   display: flex;
   flex-wrap: wrap;
-  gap: 0rem 0.75rem;
+  gap: 0.25rem 0.75rem;
   margin: 0 0 0.6rem;
-  font-size: 0.9rem;
+  padding: 0;
+  color: var(--accent-color);
+  list-style: none;
 }
 
-.case-details dl div {
-  display: flex;
-  gap: 0.25rem;
-  font-size: 0.9rem;
+.case-metadata li {
+  font-size: 0.9em;
 }
 
-.case-details dt {
+.case-metadata strong {
+  color: var(--text-color);
   font-weight: 700;
-  font-size: 0.9rem;
 }
 
-.case-details dd {
-  margin: 0;
-}
-
-/*texto de caso*/
 .case-details p {
   margin: 0;
-  font-size: 0.9rem;
-}
-
-.case-item.is-active .case-toggle {
-  /* width: 50%; */
-}
-
-.case-item.is-active {
-  width: 40%;
-  z-index: 1;
+  color: var(--accent-color);
 }
 
 .case-toggle:focus-visible {
@@ -196,8 +183,8 @@ body {
 }
 
 @media (max-width: 600px) {
-  body {
-    padding: 0.5rem;
+  .site-header {
+    padding: 0.75rem;
   }
 
   .grid-sizer,
@@ -218,23 +205,4 @@ body {
     padding: 0.45rem;
     font-size: 0.65rem;
   }
-}
-h2 {
-  font-family: var(--display-font-family);
-  font-weight: var(--display-font-weight);
-  font-size: var(--display-font-size);
-}
-
-
-
-text {
-  font-family: var(--text-font-family);
-  font-weight: var(--text-font-weight);
-  font-size: var(--text-font-size);
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }

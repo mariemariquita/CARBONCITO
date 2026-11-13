@@ -15,6 +15,31 @@
 --display-font-size: 3.3rem;
 }
 
+<style>
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background:#000000;
+  box-shadow: inset 0 0 5px grey; 
+
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:#e0ff00; 
+  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f0f0f0; 
+}
+</style>
+
 * {
   margin: 0;
   padding: 0;

@@ -3,6 +3,7 @@
 **Lian Yong Wei**
 
 - **Edad:** 51
+- **img:** -.gif
 - **Nacionalidad:** china
 - **Fecha de fallecimiento:** 23 de agosto de 2026
 
@@ -11,6 +12,7 @@ Murió en el Commonwealth Health Care Corporation, un hospital de Saipán, en la
 **Edwin Lopez-Cornejo**
 
 - **Edad:** 41
+- **img:** -.gif
 - **Nacionalidad:** salvadoreña
 - **Fecha de fallecimiento:** 1 de agosto de 2026
 
@@ -19,6 +21,7 @@ Murió en el centro de detención Delaney Hall en Newark, Nueva Jersey. ICE anun
 **Prisciliano Trejo Ricano**
 
 - **Edad:** 29
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 24 de julio de 2026
 
@@ -27,6 +30,7 @@ La leucemia acabó con su vida en un hospital de Augusta, Georgia. De acuerdo co
 **Jesus Manuel Arenas-Silva**
 
 - **Edad:** 45
+- **img:** -.gif
 - **Nacionalidad:** venezolana
 - **Fecha de fallecimiento:** 13 de julio de 2026
 
@@ -35,6 +39,7 @@ Murió en el camino durante un traslado entre el Irwin County Detention Center, 
 **Felix Alcorta-Rodriguez**
 
 - **Edad:** 63
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 19 de junio de 2026
 
@@ -43,6 +48,7 @@ Murió en el Webb County Detention Center, en Laredo, Texas. ICE informó que fu
 **Mamuka Artmeladze**
 
 - **Edad:** 43
+- **img:** -.gif
 - **Nacionalidad:** georgiana
 - **Fecha de fallecimiento:** 4 de junio de 2026
 
@@ -51,6 +57,7 @@ Murió en el Winn Correctional Center, en Luisiana. ICE reportó su muerte tres 
 **Denny Adan Gonzalez**
 
 - **Edad:** 33
+- **img:** -.gif
 - **Nacionalidad:** cubana
 - **Fecha de fallecimiento:** 28 de abril de 2026
 
@@ -59,6 +66,7 @@ Murió en un centro de detención en Lumpkin, Georgia. ICE habló de un presunto
 **Aled Damien Carbonell-Betancourt**
 
 - **Edad:** 27
+- **img:** -.gif
 - **Nacionalidad:** cubana
 - **Fecha de fallecimiento:** 12 de abril de 2026
 
@@ -67,6 +75,7 @@ Murió en el Federal Detention Center de Miami, Florida. Las autoridades presume
 **Alejandro Cabrera Clemente**
 
 - **Edad:** 49
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 11 de abril de 2026
 
@@ -75,6 +84,7 @@ Vivía en Chattanooga, Tennessee, según el canal WTVC. Murió en el Winn Correc
 **Tuan Van Bui**
 
 - **Edad:** 55
+- **img:** -.gif
 - **Nacionalidad:** vietnamita
 - **Fecha de fallecimiento:** 1 de abril de 2026
 
@@ -83,6 +93,7 @@ Fue encontrado sin respuesta en el Miami Correctional Facility, en Bunker Hill, 
 **José Guadalupe Ramos-Solano**
 
 - **Edad:** 52
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 25 de marzo de 2026
 
@@ -91,6 +102,7 @@ Vivía en Los Ángeles, según The Guardian. Lo hallaron sin respuesta en su lit
 **Royer Perez-Jimenez**
 
 - **Edad:** 19
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 16 de marzo de 2026
 
@@ -99,6 +111,7 @@ Originario de San Juan Chamula, una comunidad maya tzotzil de las montañas de C
 **Mohammad Nazeer Paktyawal**
 
 - **Edad:** 41
+- **img:** -.gif
 - **Nacionalidad:** afgana
 - **Fecha de fallecimiento:** 14 de marzo de 2026
 
@@ -107,6 +120,7 @@ Mohammad era padre de seis hijos; el menor tenía apenas 18 meses. Durante más 
 **Emmanuel Damas**
 
 - **Edad:** 56
+- **img:** -.gif
 - **Nacionalidad:** haitiana
 - **Fecha de fallecimiento:** 2 de marzo de 2026
 
@@ -115,6 +129,7 @@ Su hermano, Presly Nelson, lo recuerda como un hombre tranquilo y compasivo que 
 **Pejman Karshenas Najafabadi**
 
 - **Edad:** 59
+- **img:** -.gif
 - **Nacionalidad:** iraní
 - **Fecha de fallecimiento:** 1 de marzo de 2026
 
@@ -123,6 +138,7 @@ Tenía varias enfermedades crónicas y fue hospitalizado desde el 20 de febrero 
 **Alberto Gutierrez-Reyes**
 
 - **Edad:** 48
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 27 de febrero de 2026
 
@@ -131,6 +147,7 @@ Vivía en el barrio de Westlake, en Los Ángeles, y padecía diabetes y colester
 **Jairo Garcia-Hernandez**
 
 - **Edad:** 27
+- **img:** -.gif
 - **Nacionalidad:** guatemalteca
 - **Fecha de fallecimiento:** 16 de febrero de 2026
 
@@ -139,6 +156,7 @@ Pasó más de trece meses bajo custodia de ICE, desde el 21 de enero de 2025. Mu
 **Lorth Sim**
 
 - **Edad:** 59
+- **img:** -.gif
 - **Nacionalidad:** camboyana
 - **Fecha de fallecimiento:** 16 de febrero de 2026
 
@@ -147,6 +165,7 @@ Encontrado sin respuesta en su celda del Miami Correctional Facility, en Bunker 
 **Heber Sanchez Domínguez**
 
 - **Edad:** 34
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 14 de enero de 2026
 
@@ -155,6 +174,7 @@ Murió a los 34 años en el Robert A. Deyton Detention Facility, en Lovejoy, Geo
 **Victor Manuel Diaz**
 
 - **Edad:** 36
+- **img:** -.gif
 - **Nacionalidad:** nicaragüense
 - **Fecha de fallecimiento:** 14 de enero de 2026
 
@@ -163,6 +183,7 @@ Víctor trabajaba en un restaurante coreano en el área de Minneapolis, y ICE lo
 **Parady La**
 
 - **Edad:** 46
+- **img:** -.gif
 - **Nacionalidad:** camboyana
 - **Fecha de fallecimiento:** 9 de enero de 2026
 
@@ -171,6 +192,7 @@ Parady nació en un campo de refugiados en Tailandia y llegó a Filadelfia a los
 **Luis Beltran Yanez-Cruz**
 
 - **Edad:** 68
+- **img:** -.gif
 - **Nacionalidad:** hondureña
 - **Fecha de fallecimiento:** 6 de enero de 2026
 
@@ -179,6 +201,7 @@ Era padre de familia. Estaba en el Imperial Regional Detention Facility, en Cale
 **Luis Gustavo Nunez Caceres**
 
 - **Edad:** 42
+- **img:** -.gif
 - **Nacionalidad:** hondureña
 - **Fecha de fallecimiento:** 5 de enero de 2026
 
@@ -187,6 +210,7 @@ Murió en un hospital de Conroe, Texas, de insuficiencia cardíaca congestiva. I
 **Geraldo Lunas Campos**
 
 - **Edad:** 55
+- **img:** -.gif
 - **Nacionalidad:** cubana
 - **Fecha de fallecimiento:** 3 de enero de 2026
 
@@ -195,6 +219,7 @@ Geraldo llegó a Estados Unidos en 1996 y vivió más de veinte años en Rochest
 **Carlos Josue Marchena-Marchena**
 
 - **Edad:** 36
+- **img:** -.gif
 - **Nacionalidad:** costarricense
 - **Fecha de fallecimiento:** 18 de septiembre de 2026
 
@@ -205,6 +230,7 @@ Carlos era padre de cuatro hijos, trabajaba como conductor de un servicio de tra
 **Nenko Stanev Gantchev**
 
 - **Edad:** 56
+- **img:** -.gif
 - **Nacionalidad:** búlgara
 - **Fecha de fallecimiento:** 15 de diciembre de 2025
 
@@ -213,6 +239,7 @@ Lo encontraron sin respuesta en su celda del North Lake Processing Center, en Ba
 **Delvin Francisco Rodriguez**
 
 - **Edad:** 39
+- **img:** -.gif
 - **Nacionalidad:** nicaragüense
 - **Fecha de fallecimiento:** 14 de diciembre de 2025
 
@@ -221,6 +248,7 @@ El 4 de diciembre lo encontraron sin pulso en el Adams County Correctional Cente
 **Fouad Saeed Abdulkadir**
 
 - **Edad:** 46
+- **img:** -.gif
 - **Nacionalidad:** eritrea
 - **Fecha de fallecimiento:** 14 de diciembre de 2025
 
@@ -229,6 +257,7 @@ Según medios era líder religioso en su comunidad. Murió en el Moshannon Valle
 **Jean Wilson Brutus**
 
 - **Edad:** 41
+- **img:** -.gif
 - **Nacionalidad:** haitiana
 - **Fecha de fallecimiento:** 12 de diciembre de 2025
 
@@ -237,6 +266,7 @@ Murió tras una emergencia médica en el centro Delaney Hall, en Newark, Nueva J
 **Shiraz Fatehali Sachwani**
 
 - **Edad:** 48
+- **img:** -.gif
 - **Nacionalidad:** pakistaní
 - **Fecha de fallecimiento:** 6 de diciembre de 2025
 
@@ -245,6 +275,7 @@ Murió en un hospital de Fort Worth, Texas, tras pasar por el Prairieland Detent
 **Pete Sumalo Montejo**
 
 - **Edad:** 72
+- **img:** -.gif
 - **Nacionalidad:** filipina
 - **Fecha de fallecimiento:** 5 de diciembre de 2025
 
@@ -253,6 +284,7 @@ Pasó buena parte de 2025 hospitalizado por complicaciones de neumonía, hipoxia
 **Francisco Gaspar-Andres**
 
 - **Edad:** 48
+- **img:** -.gif
 - **Nacionalidad:** guatemalteca
 - **Fecha de fallecimiento:** 3 de diciembre de 2025
 
@@ -261,6 +293,7 @@ Fue la primera persona en morir en Camp East Montana, en El Paso, Texas, en un h
 **Kai Yin Wong**
 
 - **Edad:** 63
+- **img:** -.gif
 - **Nacionalidad:** china
 - **Fecha de fallecimiento:** 25 de octubre de 2025
 
@@ -269,6 +302,7 @@ Murió en un hospital de San Antonio, Texas, tras estar en el South Texas ICE Pr
 **Gabriel Garcia-Aviles**
 
 - **Edad:** 56
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 23 de octubre de 2025
 
@@ -277,6 +311,7 @@ Sufrió un paro cardíaco que ICE atribuyó a abstinencia de alcohol. Murió en 
 **Hasan Ali Moh’D Saleh**
 
 - **Edad:** 67
+- **img:** -.gif
 - **Nacionalidad:** jordana
 - **Fecha de fallecimiento:** 11 de octubre de 2025
 
@@ -285,6 +320,7 @@ Lo hospitalizaron en el Larkin Community Hospital, en Miami, con fiebre alta. Pe
 **Leo Cruz-Silva**
 
 - **Edad:** 34
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 4 de octubre de 2025
 
@@ -293,6 +329,7 @@ Murió en la cárcel del condado de Ste. Genevieve, Misuri. Según los reportes,
 **Miguel Angel Garcia-Hernandez**
 
 - **Edad:** 31
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 29 de septiembre de 2025
 
@@ -301,6 +338,7 @@ También conocido como Miguel Ángel García Medina. Estaba bajo custodia de ICE
 **Huabing Xie**
 
 - **Edad:** 53
+- **img:** -.gif
 - **Nacionalidad:** china
 - **Fecha de fallecimiento:** 29 de septiembre de 2025
 
@@ -309,6 +347,7 @@ Sufrió lo que ICE describió como una convulsión en el Imperial Regional Deten
 **Norlan Guzman-Fuentes**
 
 - **Edad:** 37
+- **img:** -.gif
 - **Nacionalidad:** salvadoreña
 - **Fecha de fallecimiento:** 24 de septiembre de 2025
 
@@ -317,6 +356,7 @@ Estaba bajo custodia de ICE en Dallas, Texas, y murió tras recibir un disparo d
 **Ismael Ayala Uribe**
 
 - **Edad:** 39
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 22 de septiembre de 2025
 
@@ -325,6 +365,7 @@ Ismael llegó a Estados Unidos a los cuatro años y creció en el condado de Ora
 **Santos Reyes-Banegas**
 
 - **Edad:** 42
+- **img:** -.gif
 - **Nacionalidad:** hondureña
 - **Fecha de fallecimiento:** 18 de septiembre de 2025
 
@@ -333,6 +374,7 @@ Murió de insuficiencia hepática en el Nassau County Correctional Center, en Ea
 **Oscar Duarte Rascon**
 
 - **Edad:** 58
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 8 de septiembre de 2025
 
@@ -341,6 +383,7 @@ Padecía Alzheimer avanzado, cáncer de riñón y hepatitis C. Murió en un hosp
 **Lorenzo Antonio Batrez Vargas**
 
 - **Edad:** 32
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 31 de agosto de 2025
 
@@ -349,6 +392,7 @@ Murió en un hospital de Florence, Arizona. ICE sospecha complicaciones pulmonar
 **Chaofeng Ge**
 
 - **Edad:** 32
+- **img:** -.gif
 - **Nacionalidad:** china
 - **Fecha de fallecimiento:** 5 de agosto de 2025
 
@@ -359,6 +403,7 @@ Llevaba sólo cinco días bajo custodia cuando lo encontraron ahorcado en una re
 
 
 - **Edad:** 55
+- **img:** -.gif
 - **Nacionalidad:** vietnamita
 - **Fecha de fallecimiento:** 19 de julio de 2025
 
@@ -370,6 +415,7 @@ Lo hospitalizaron un día antes de morir en Karnes City, Texas, por convulsiones
 
 
 - **Edad:** 75
+- **img:** -.gif
 - **Nacionalidad:** cubana
 - **Fecha de fallecimiento:** 26 de junio de 2025
 
@@ -381,6 +427,7 @@ Se quejó de dolor en el pecho en el centro Krome, en Miami. Al principio respon
 
 
 - **Edad:** 49
+- **img:** -.gif
 - **Nacionalidad:** canadiense
 - **Fecha de fallecimiento:** 23 de junio de 2025
 
@@ -392,6 +439,7 @@ Lo encontraron sin respuesta en el Federal Detention Center de Miami. Le practic
 
 
 - **Edad:** 45
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 7 de junio de 2025
 
@@ -403,6 +451,7 @@ Lo hallaron sin respuesta, con una tela atada al cuello y a la litera superior, 
 
 
 - **Edad:** 68
+- **img:** -.gif
 - **Nacionalidad:** mexicana
 - **Fecha de fallecimiento:** 5 de mayo de 2025
 
@@ -414,6 +463,7 @@ Murió durante el traslado de la cárcel del condado de Lowndes, en Valdosta, Ge
 
 
 - **Edad:** 44
+- **img:** -.gif
 - **Nacionalidad:** haitiana
 - **Fecha de fallecimiento:** 25 de abril de 2025
 
@@ -425,6 +475,7 @@ Murió tras 32 días de detención en el Broward Transitional Center, en Pompano
 
 
 - **Edad:** 55
+- **img:** -.gif
 - **Nacionalidad:** vietnamita
 - **Fecha de fallecimiento:** 16 de abril de 2025
 
@@ -436,6 +487,7 @@ Tenía demencia, agitación y una úlcera por presión. Necesitaba ayuda total p
 
 
 - **Edad:** 27
+- **img:** -.gif
 - **Nacionalidad:** colombiana
 - **Fecha de fallecimiento:** 8 de abril de 2025
 
@@ -447,6 +499,7 @@ Lo encontraron sin respuesta en su celda de la cárcel del condado de Phelps, en
 
 
 - **Edad:** 44
+- **img:** -.gif
 - **Nacionalidad:** dominicana
 - **Fecha de fallecimiento:** 23 de febrero de 2025
 
@@ -458,6 +511,7 @@ Murió en el Centro Médico de San Juan, Puerto Rico, tras ser diagnosticado con
 
 
 - **Edad:** 45
+- **img:** -.gif
 - **Nacionalidad:** ucraniana
 - **Fecha de fallecimiento:** 20 de febrero de 2025
 
@@ -469,6 +523,7 @@ Murió de un derrame cerebral en un hospital de Miami, después de pasar por el 
 
 
 - **Edad:** 45
+- **img:** -.gif
 - **Nacionalidad:** etíope
 - **Fecha de fallecimiento:** 29 de enero de 2025
 
@@ -480,6 +535,7 @@ Los médicos del Banner University Medical Center, en Phoenix, le encontraron ne
 
 
 - **Edad:** 29
+- **img:** -.gif
 - **Nacionalidad:** hondureña
 - **Fecha de fallecimiento:** 23 de enero de 2025
 
