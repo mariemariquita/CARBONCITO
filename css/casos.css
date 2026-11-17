@@ -117,23 +117,27 @@
 
 .case-details h2 {
   margin: 0 0 0.6rem;
+  padding: 1.5rem 2rem 2rem 0.6rem;
   font-family: var(--display-font-family);
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: 3rem;
   font-weight: var(--display-font-weight);
 }
 
+
 .case-metadata {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 0.75rem;
-  margin: 0 0 0.6rem;
-  padding: 0;
+  flex-direction: column;   /* uno debajo del otro */
+  gap: 0.25rem;
+  margin: 0.5rem 0.5rem 0.6rem 0.6rem;
+  padding: 1.5rem 2rem 1.5rem 0.6rem;  /*arriba derecha abajo izquierda*/
   color: var(--accent-color);
   list-style: none;
+  line-height: 3em;
 }
 
 .case-metadata li {
-  font-size: 0.9em;
+display: list-item;
+  font-size: 1.5rem;
 }
 
 .case-metadata strong {
@@ -144,6 +148,9 @@
 .case-details p {
   margin: 0;
   color: var(--accent-color);
+  font-size: 1.5rem;
+  line-height: 1.5em;
+    padding: 1.5rem 2rem 1.5rem 0.6rem;
 }
 
 .case-toggle:focus-visible {
