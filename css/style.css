@@ -15,15 +15,41 @@
 --display-font-size: 3.3rem;
 }
 
-html,
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-  background: var(--bg-color);
+
+* {
+  box-sizing: border-box;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background:var(--bg-color);
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:var(--text-color); 
+  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color); 
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--text-font-family);
+  font-weight: var(--text-font-weight);
+}
 #sketch {
   position: fixed;
   inset: 0;
