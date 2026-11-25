@@ -58,8 +58,20 @@ body {
   font-size: clamp(2rem, 5vw, 5rem);
   text-transform: uppercase;
   text-decoration: none;
+  flex-direction: column;}
+
+.mitad h2 {
+  margin-bottom: 1rem;
 }
 
+.mitad p {
+  opacity: 0;
+  font-size: 1rem;
+}
+
+.mitad:hover p {
+  opacity: 1;
+}
 .izquierda {
   background: #000;
   color: #e0ff00;
