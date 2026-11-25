@@ -105,19 +105,18 @@
 }
 
 .case-details {
-  padding: clamp(0.5rem, 1.5vw, 1rem);
-  overflow: auto;
+  padding: 2em 4em 1em 2em;
   background: var(--bg-color);
   color: var(--text-color);
   font-size: clamp(0.65rem, 1vw, 0.9rem);
   line-height: 1.35;
   scrollbar-color: var(--bg-color) transparent;
-  height: 100%;
+  min-height: 100%;
 }
 
 .case-details h2 {
-  margin: 0 0 0.6rem;
-  padding: 1.5rem 2rem 2rem 0.6rem;
+  margin: 0;
+  padding: 0;
   font-family: var(--display-font-family);
   font-size: 3rem;
   font-weight: var(--display-font-weight);
@@ -128,17 +127,14 @@
   display: flex;
   flex-direction: column;   /* uno debajo del otro */
   gap: 0.25rem;
-  margin: 0.5rem 0.5rem 0.6rem 0.6rem;
-  padding: 1.5rem 2rem 1.5rem 0.6rem;  /*arriba derecha abajo izquierda*/
+  margin: 3em 0 4em 0;
+  padding: 0;  /*arriba derecha abajo izquierda*/
   color: var(--accent-color);
   list-style: none;
   line-height: 3em;
 }
 
-.case-metadata li {
-display: list-item;
-  font-size: 1.5rem;
-}
+.case-metadata li {display: list-item;font-size: 1.5rem;margin: .15em 0;}
 
 .case-metadata strong {
   color: var(--text-color);
@@ -150,7 +146,7 @@ display: list-item;
   color: var(--accent-color);
   font-size: 1.5rem;
   line-height: 1.5em;
-    padding: 1.5rem 2rem 1.5rem 0.6rem;
+  padding: 0;
 }
 
 .case-toggle:focus-visible {

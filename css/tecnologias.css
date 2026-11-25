@@ -1,0 +1,147 @@
+
+.technology-theme {
+  --bg-color: #e0ff00;
+  --text-color: #111111;
+  --accent-color: #111111;
+}
+html, body {
+  background: var(--accent-color);
+}
+.site-header {
+  background: var(--bg-color);
+}
+#technology-status {
+  margin: 1rem;
+  color: var(--accent-color);
+}
+
+#technology-status:empty {
+  display: none;
+}
+
+.technology-item .case-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: var(--text-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+.technology-item .case-name {
+  position: static;
+  padding: 0;
+  background: none;
+  color: var(--bg-color);
+  font-size: clamp(0.55rem, 1.1vw, 0.95rem);
+  line-height: 1.2;
+  opacity: 1;
+  overflow-wrap: anywhere;
+}
+
+.technology-item .case-toggle:hover,
+.technology-item .case-toggle:focus-visible {
+  color: var(--accent-color);
+}
+
+.technology-item .case-details {
+  padding: 1.5rem;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+}
+
+.technology-item.is-active .case-toggle {
+  display: none;
+}
+
+.technology-item.is-active {
+  aspect-ratio: 340 / 440;
+}
+
+.technology-item.is-active .case-details {
+  position: relative;
+  overflow: visible;
+}
+
+.technology-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--accent-color);
+  background: transparent;
+  color: var(--accent-color);
+  font: inherit;
+  cursor: pointer;
+}
+
+.technology-item .case-details h2 {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  padding-right: 5rem;
+  overflow-wrap: anywhere;
+}
+
+.technology-item .case-metadata {
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  line-height: 1.4;
+}
+
+.technology-item .case-metadata li {
+  margin: 0;
+  font-size: inherit;
+}
+
+.technology-item .case-metadata strong {
+  color: var(--text-color);
+}
+
+.technology-item .case-details p {
+  margin: 0 0 1rem;
+  font-size: inherit;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .technology-item .case-details {
+    padding: 0.75rem;
+  }
+
+  .technology-close {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+.grid-sizer,
+.case-item {
+  width: 16.6667%;
+}
+
+.case-item.is-active {
+  z-index: 1;
+  width: 33.333333%;
+}
+
+@media (max-width: 1024px) {
+  .grid-sizer,
+  .case-item {
+    width: 25%;
+  }
+
+  .case-item.is-active {
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-sizer,
+  .case-item {
+    width: 33.3333%;
+  }
+
+  .case-item.is-active {
+    width: 100%;
+  }
+
+}
