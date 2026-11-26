@@ -67,6 +67,12 @@ function prepareCaseCard(item) {
   caption.classList.add("case-details");
   caption.hidden = true;
   button.addEventListener("click", () => toggleCase(item));
+  item.append(createCardCloseButton(`Cerrar caso: ${title.textContent.trim()}`, () => {
+    if (activeItem === item) {
+      toggleCase(item);
+      button.focus();
+    }
+  }));
 }
 
 function toggleCase(selectedItem) {

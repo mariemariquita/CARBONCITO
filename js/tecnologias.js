@@ -65,7 +65,6 @@ function createTechnologyCard(technology) {
   const button = document.createElement("button");
   const name = document.createElement("span");
   const details = document.createElement("figcaption");
-  const closeButton = document.createElement("button");
   const heading = document.createElement("h2");
   const metadata = document.createElement("ul");
 
@@ -81,10 +80,6 @@ function createTechnologyCard(technology) {
 
   details.className = "case-details";
   details.hidden = true;
-  closeButton.className = "technology-close";
-  closeButton.type = "button";
-  closeButton.textContent = "Cerrar";
-  closeButton.setAttribute("aria-label", `Cerrar información: ${technology.title}`);
   heading.textContent = technology.title;
   metadata.className = "case-metadata";
 
@@ -94,7 +89,7 @@ function createTechnologyCard(technology) {
     metadata.append(entry);
   }
 
-  details.append(closeButton, heading);
+  details.append(heading);
   if (technology.metadata.length) {
     details.append(metadata);
   }
@@ -105,9 +100,12 @@ function createTechnologyCard(technology) {
   }
 
   figure.append(button, details);
-  item.append(figure);
+  item.append(figure, createCardCloseButton(`Cerrar información: ${technology.title}`, () => {
+    if (activeItem === item) {
+      toggleTechnology(item);
+    }
+  }));
   button.addEventListener("click", () => toggleTechnology(item));
-  closeButton.addEventListener("click", () => toggleTechnology(item));
   return item;
 }
 
@@ -131,7 +129,7 @@ function toggleTechnology(selectedItem) {
     activeItem.classList.add("is-active");
     activeItem.querySelector(".case-toggle").setAttribute("aria-expanded", "true");
     activeItem.querySelector(".case-details").hidden = false;
-    activeItem.querySelector(".technology-close").focus();
+    activeItem.querySelector(".card-close").focus();
   } else if (previousItem) {
     previousItem.querySelector(".case-toggle").focus();
   }

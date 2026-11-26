@@ -63,18 +63,6 @@ html, body {
   overflow: visible;
 }
 
-.technology-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.35rem 0.6rem;
-  border: 1px solid var(--accent-color);
-  background: transparent;
-  color: var(--accent-color);
-  font: inherit;
-  cursor: pointer;
-}
-
 .technology-item .case-details h2 {
   font-size: clamp(1.5rem, 3vw, 3rem);
   padding-right: 5rem;
@@ -105,11 +93,6 @@ html, body {
 @media (max-width: 600px) {
   .technology-item .case-details {
     padding: 0.75rem;
-  }
-
-  .technology-close {
-    top: 0.5rem;
-    right: 0.5rem;
   }
 }
 

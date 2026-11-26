@@ -7,3 +7,9 @@ El contenedor de texto color blanco que aparece debe de estar centrado, respetan
 Define un CTA bajo el texto que sea una flecha pixelada apuntando hacia abajo, color: #F0F0F0, tiene que tener el doble de tamaño del texto base, y al hover tiene que volverse blanca.
 
 --
+Añade en todos los cards de (casos/tecnologías) un botón de 'X' pixelada en lugar de cerrar, posición absoluta superior derecha para preservar los casos de scroll, el botón debe de tener estado subrayado al hover.
+
+--
+
+--
+Ajusta todos los contenidos de los cards separando el contenido en diferentes párrafos , analiza el conteniedo y enriquece con negritas e itálicas.

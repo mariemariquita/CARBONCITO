@@ -125,6 +125,53 @@
   outline-offset: -3px;
 }
 
+/* Cerrar: X pixelada fija arriba a la derecha del card (fuera del scroll) */
+.card-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.4rem;
+  border: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.case-item.is-active .card-close {
+  display: flex;
+}
+
+.card-close svg {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+/* Subrayado pixelado: misma altura que un "pixel" de la X */
+.card-close::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: calc(1.25rem / 7);
+  background: currentColor;
+  visibility: hidden;
+}
+
+.card-close:hover::after,
+.card-close:focus-visible::after {
+  visibility: visible;
+}
+
+.card-close:focus-visible {
+  outline: none;
+}
+
 @media (max-width: 1024px) {
   .grid-sizer,
   .case-item {
@@ -149,6 +196,11 @@
   .case-name {
     padding: 0.3rem;
     font-size: 0.65rem;
+  }
+
+  .card-close {
+    top: 0.5rem;
+    right: 0.5rem;
   }
 
   .case-details {

@@ -11,6 +11,9 @@ const GLITCH_MAX = 450;
 const FLICKER_MS = 70;
 const GLITCH_COLOR = "#ffffff";
 const GLYPHS = "0123456789ABCDEF:.=*+-<>¦╌";
+// Retraso (ms) entre el click y la aparición del texto de bienvenida.
+// 0 = el texto del sketch se convierte directamente en el texto nuevo.
+const INTRO_DELAY_MS = 2000;
 
 
 const rand = (min, max) => min + Math.random() * (max - min);
@@ -40,8 +43,6 @@ let settings;
 let settingsSignature = "";
 let waves = [];
 let previousHoveredWord = null;
-let glitchOriginX = 0;
-let glitchOriginY = 0;
 
 function setup() {
   const canvas = createCanvas(windowWidth, windowHeight);
@@ -304,8 +305,6 @@ function mousePressed() {
   }
 
   phase = "glitching";
-  glitchOriginX = mouseX;
-  glitchOriginY = mouseY;
   glitchStartedAt = performance.now();
   glitchQueueIndex = 0;
   glitchQueue = [];
@@ -356,6 +355,7 @@ function mousePressed() {
   }
 
   glitchQueue.sort((first, second) => first.start - second.start);
+  startIntroHandoff(glitchQueue, glitchStartedAt, mouseX, mouseY);
 }
 
 function drawGlitchAnimation() {
@@ -397,6 +397,10 @@ function drawGlitchAnimation() {
         glyph.nextFlicker = elapsed + FLICKER_MS;
       }
 
+      if (glyph.handoff) {
+        continue;
+      }
+
       drawingContext.fillStyle = GLITCH_COLOR || settings.color;
       drawingContext.fillText(glyph.symbol, glyph.x, glyph.y);
     }
@@ -406,7 +410,6 @@ function drawGlitchAnimation() {
     phase = "black";
     glitchQueue = [];
     glitchingCharacters = [];
-    revealIntroText(glitchOriginX, glitchOriginY);
   }
 }
 
@@ -453,30 +456,43 @@ function splitIntoGlyphs(root, initialState) {
   return glyphs;
 }
 
+function computeGlitchStart(centerX, centerY, lineKey, lineOffsets, originX, originY) {
+  if (!lineOffsets.has(lineKey)) {
+    lineOffsets.set(lineKey, rand(0, LINE_JITTER));
+  }
+  return Math.abs(centerY - originY) * LINE_DELAY +
+    Math.abs(centerX - originX) * CHAR_DELAY +
+    lineOffsets.get(lineKey) +
+    rand(0, CHAR_JITTER);
+}
+
 // mode "in": el carácter aparece glitcheando y se fija en su letra.
 // mode "out": el carácter glitchea y desaparece.
 function runDomGlitch(glyphs, originX, originY, mode) {
   const lineOffsets = new Map();
   for (const glyph of glyphs) {
     const rect = glyph.el.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const lineKey = Math.round(rect.top);
-    if (!lineOffsets.has(lineKey)) {
-      lineOffsets.set(lineKey, rand(0, LINE_JITTER));
-    }
-    glyph.start = Math.abs(centerY - originY) * LINE_DELAY +
-      Math.abs(centerX - originX) * CHAR_DELAY +
-      lineOffsets.get(lineKey) +
-      rand(0, CHAR_JITTER);
-    glyph.duration = rand(GLITCH_MIN, GLITCH_MAX);
+    glyph.start = computeGlitchStart(
+      rect.left + rect.width / 2,
+      rect.top + rect.height / 2,
+      Math.round(rect.top),
+      lineOffsets,
+      originX,
+      originY
+    );
   }
 
-  const queue = [...glyphs].sort((first, second) => first.start - second.start);
-  const firstStart = queue.length ? queue[0].start : 0;
-  for (const glyph of queue) {
+  const firstStart = glyphs.reduce((min, glyph) => Math.min(min, glyph.start), Infinity);
+  for (const glyph of glyphs) {
     glyph.start -= firstStart;
+    glyph.end = glyph.start + rand(GLITCH_MIN, GLITCH_MAX);
   }
+  return animateDomGlyphs(glyphs, mode, performance.now());
+}
+
+// Anima glifos del DOM con tiempos ya calculados (glyph.start / glyph.end, en ms desde startedAt).
+function animateDomGlyphs(glyphs, mode, startedAt) {
+  const queue = [...glyphs].sort((first, second) => first.start - second.start);
 
   return new Promise((resolve) => {
     if (!queue.length) {
@@ -484,7 +500,6 @@ function runDomGlitch(glyphs, originX, originY, mode) {
       return;
     }
 
-    const startedAt = performance.now();
     let queueIndex = 0;
     let active = [];
 
@@ -493,7 +508,6 @@ function runDomGlitch(glyphs, originX, originY, mode) {
 
       while (queueIndex < queue.length && queue[queueIndex].start <= elapsed) {
         const glyph = queue[queueIndex];
-        glyph.endsAt = elapsed + glyph.duration;
         glyph.nextFlicker = elapsed;
         glyph.el.classList.remove("is-pending", "is-gone");
         glyph.el.classList.add("is-glitching");
@@ -502,7 +516,7 @@ function runDomGlitch(glyphs, originX, originY, mode) {
       }
 
       active = active.filter((glyph) => {
-        if (elapsed >= glyph.endsAt) {
+        if (elapsed >= glyph.end) {
           glyph.el.textContent = glyph.character;
           glyph.el.classList.remove("is-glitching");
           if (mode === "out") {
@@ -540,7 +554,10 @@ const introGlyphs = splitIntoGlyphs(introCopy, "is-pending");
 const homeGlyphs = Array.from(homeEl.querySelectorAll("[data-glitch]"))
   .flatMap((element) => splitIntoGlyphs(element, "is-pending"));
 
-function revealIntroText(originX, originY) {
+// El texto del sketch se convierte en el texto de bienvenida: cada carácter nuevo
+// arranca cuando arranca el último carácter del sketch que tiene debajo y se fija
+// cuando todos esos terminaron. Lo que no queda bajo el texto se apaga a negro.
+function startIntroHandoff(canvasGlyphs, startedAt, originX, originY) {
   if (introSection.classList.contains("is-visible")) {
     return;
   }
@@ -549,7 +566,62 @@ function revealIntroText(originX, originY) {
   introSection.removeAttribute("aria-hidden");
   sketchEl.style.cursor = "default";
 
-  runDomGlitch(introGlyphs, originX, originY, "in").then(() => {
+  const fontSize = settings ? settings.fontSize : 16;
+  const rows = new Map();
+  for (const glyph of canvasGlyphs) {
+    const key = Math.round(glyph.y);
+    if (!rows.has(key)) {
+      rows.set(key, []);
+    }
+    rows.get(key).push(glyph);
+  }
+  const rowEntries = [...rows.entries()];
+  const lineOffsets = new Map();
+
+  for (const glyph of introGlyphs) {
+    const rect = glyph.el.getBoundingClientRect();
+    let latest = null;
+    let lastEnd = 0;
+
+    for (const [baseline, row] of rowEntries) {
+      const rowTop = baseline - fontSize * 0.8;
+      const rowBottom = baseline + fontSize * 0.2;
+      if (rowBottom < rect.top || rowTop > rect.bottom) {
+        continue;
+      }
+      for (const canvasGlyph of row) {
+        const right = canvasGlyph.x + fontSize * 0.6;
+        if (right < rect.left || canvasGlyph.x > rect.right) {
+          continue;
+        }
+        lastEnd = Math.max(lastEnd, canvasGlyph.start + canvasGlyph.duration);
+        if (!latest || canvasGlyph.start > latest.start) {
+          latest = canvasGlyph;
+        }
+      }
+    }
+
+    if (latest) {
+      // Sin retraso, el carácter del sketch cede su lugar al nuevo; con retraso,
+      // termina su glitch normal y el nuevo aparece después sobre negro.
+      latest.handoff = INTRO_DELAY_MS <= 0;
+      glyph.start = latest.start;
+      // +1 cuadro de margen: el sketch fija su fin en el cuadro en que arranca cada glifo.
+      glyph.end = Math.max(lastEnd + 34, glyph.start + rand(GLITCH_MIN, GLITCH_MAX));
+    } else {
+      glyph.start = computeGlitchStart(
+        rect.left + rect.width / 2,
+        rect.top + rect.height / 2,
+        Math.round(rect.top),
+        lineOffsets,
+        originX,
+        originY
+      );
+      glyph.end = glyph.start + rand(GLITCH_MIN, GLITCH_MAX);
+    }
+  }
+
+  animateDomGlyphs(introGlyphs, "in", startedAt + Math.max(0, INTRO_DELAY_MS)).then(() => {
     introSection.classList.add("is-complete");
     introCta.removeAttribute("tabindex");
   });
