@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/menu.css">
     <link rel="stylesheet" href="https://use.typekit.net/wzh4byg.css">
     <title>ICE</title>
 </head>
 <body>
-    <main id="sketch" aria-label="Palabras de Intimidation Control Exclusion">
+    <div id="sketch" aria-label="Palabras de Intimidation Control Exclusion">
 
         <h1 class="viewport-logo" aria-label="ICE">
             <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 783.43 325.15" aria-hidden="true">
@@ -18,7 +19,9 @@
             </svg>
         </h1>
 
-        <section id="intro-text">
+        <section id="intro-text" aria-hidden="true">
+            <div class="intro-content">
+            <div class="intro-copy">
             <p>El Servicio de Inmigración y Control de Aduanas de Estados Unidos (ICE) ha ampliado su alcance mediante 
                 políticas ultraderechistas del Partido Republicano, lo que ha impulsado el uso de tecnologías y 
                 softwares desarrollados por empresas como Palantir, especializada en análisis de datos del sector público. 
@@ -26,10 +29,44 @@
 <p>Consideramos fundamental que esta información sea del conocimiento general por lo que  en este sitio web queremos demostrar 
                 como ICE instrumentaliza la inteligencia artificial para extraer datos públicos y ejercer control sobre inmigrantes y grupos vulnerables. 
                 Asimismo, se visibiliza las consecuencias deshumanizantes de este sistema, entre ellas las muertes de personas bajo custodia de ICE.</p>
-            <a href="./menu.html">Continuar</a>
+            </div>
+            <a class="intro-cta" href="#home" aria-label="Continuar" tabindex="-1">
+                <svg viewBox="0 0 7 8" shape-rendering="crispEdges" aria-hidden="true">
+                    <rect x="2" y="0" width="3" height="4"/>
+                    <rect x="0" y="4" width="7" height="1"/>
+                    <rect x="1" y="5" width="5" height="1"/>
+                    <rect x="2" y="6" width="3" height="1"/>
+                    <rect x="3" y="7" width="1" height="1"/>
+                </svg>
+            </a>
+            </div>
         </section>
-        
-    </main>
+
+    </div>
+
+    <div id="home" hidden>
+        <header class="site-header">
+            <a class="site-logo" href="./index.html#home" aria-label="ICE, página de inicio">
+                <svg aria-hidden="true" viewBox="0 0 783.43 325.15" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M147.9,53.86h69.12V0H1.72v53.86h66.94v210.81H0v60.47h218.26v-60.47h-70.36V53.86ZM783.43,93.39V0h-223.65v325.15h223.65v-94.26h-53.3v33.73h-91.14v-81.88h78.69v-50.7h-78.69V60.53h91.14v32.86h53.3ZM277.93,325.15h223.1v-89.52h-57.99v35.29h-85.84V57.88h85.84v39.85h57.99V0h-223.1v325.15Z"/>
+                </svg>
+            </a>
+            <nav class="site-nav" aria-label="Principal">
+                <a href="./tecnologias.html" data-glitch>Tecnologías</a>
+                <a href="./casos.html" data-glitch>Casos</a>
+            </nav>
+        </header>
+        <main class="home-panels">
+            <a class="mitad izquierda" href="./tecnologias.html">
+                <h2 data-glitch>Tecnologías</h2>
+                <p class="descripcion">Las tecnologías desarrolladas por ICE operan mediante un sistema de vigilancia y monitoreo constante utilizado para capturar y detener a la gente basándose principalmente en su apariencia. Dentro de ellos, también se han desarrollado herramientas, aplicaciones y sistemas tecnológicos de vigilancia, reconocimiento facial, biométrico y dactilar, así como de recopilación, procesamiento, análisis y visualización de datos provenientes del sector público y privado. En esta sección del sitio web exponemos la vigilancia tecnofascista bajo la que opera ICE.</p>
+            </a>
+            <a class="mitad derecha" href="./casos.html">
+                <h2 data-glitch>Casos</h2>
+                <p class="descripcion">Un gran problema al que se enfrentan las personas cuando son detenidas es la falta de un trato digno con acceso a recursos médicos y atención psicológica, por lo que muchas personas fallecen bajo la detención de ICE por alguna enfermedad, suicidio o por no poder tener contacto con algún familiar para recibir ayuda oportuna. En esta sección del sitio web hacemos conciencia y mantenemos la memoria de las personas que han fallecido, desde enero de 2025 hasta noviembre de 2026, bajo la detención por la negligencia del equipo que opera dentro de los centros de detención de ICE.</p>
+            </a>
+        </main>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
     <script src="./js/scripts.js"></script>
 </body>

@@ -40,10 +40,15 @@ let settings;
 let settingsSignature = "";
 let waves = [];
 let previousHoveredWord = null;
+let glitchOriginX = 0;
+let glitchOriginY = 0;
 
 function setup() {
   const canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("sketch");
+  if (phase === "done") {
+    noLoop();
+  }
   canvas.elt.setAttribute("aria-label", "Palabras interactivas de ICE");
   canvas.elt.setAttribute("role", "img");
   textAlign(LEFT, BASELINE);
@@ -299,6 +304,8 @@ function mousePressed() {
   }
 
   phase = "glitching";
+  glitchOriginX = mouseX;
+  glitchOriginY = mouseY;
   glitchStartedAt = performance.now();
   glitchQueueIndex = 0;
   glitchQueue = [];
@@ -399,6 +406,7 @@ function drawGlitchAnimation() {
     phase = "black";
     glitchQueue = [];
     glitchingCharacters = [];
+    revealIntroText(glitchOriginX, glitchOriginY);
   }
 }
 
@@ -407,4 +415,184 @@ function windowResized() {
   if (phase === "words") {
     refreshSettings();
   }
+}
+
+// --- Glitch sobre texto del DOM (mismo efecto que el sketch) ---
+
+function splitIntoGlyphs(root, initialState) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  while (walker.nextNode()) {
+    textNodes.push(walker.currentNode);
+  }
+
+  const glyphs = [];
+  for (const node of textNodes) {
+    if (!node.textContent.trim()) {
+      continue;
+    }
+    const fragment = document.createDocumentFragment();
+    for (const part of node.textContent.split(/(\s+)/)) {
+      if (!part) {
+        continue;
+      }
+      if (/^\s+$/.test(part)) {
+        fragment.appendChild(document.createTextNode(part));
+        continue;
+      }
+      for (const character of Array.from(part)) {
+        const span = document.createElement("span");
+        span.className = initialState ? `glitch-glyph ${initialState}` : "glitch-glyph";
+        span.textContent = character;
+        fragment.appendChild(span);
+        glyphs.push({ el: span, character });
+      }
+    }
+    node.replaceWith(fragment);
+  }
+  return glyphs;
+}
+
+// mode "in": el carácter aparece glitcheando y se fija en su letra.
+// mode "out": el carácter glitchea y desaparece.
+function runDomGlitch(glyphs, originX, originY, mode) {
+  const lineOffsets = new Map();
+  for (const glyph of glyphs) {
+    const rect = glyph.el.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const lineKey = Math.round(rect.top);
+    if (!lineOffsets.has(lineKey)) {
+      lineOffsets.set(lineKey, rand(0, LINE_JITTER));
+    }
+    glyph.start = Math.abs(centerY - originY) * LINE_DELAY +
+      Math.abs(centerX - originX) * CHAR_DELAY +
+      lineOffsets.get(lineKey) +
+      rand(0, CHAR_JITTER);
+    glyph.duration = rand(GLITCH_MIN, GLITCH_MAX);
+  }
+
+  const queue = [...glyphs].sort((first, second) => first.start - second.start);
+  const firstStart = queue.length ? queue[0].start : 0;
+  for (const glyph of queue) {
+    glyph.start -= firstStart;
+  }
+
+  return new Promise((resolve) => {
+    if (!queue.length) {
+      resolve();
+      return;
+    }
+
+    const startedAt = performance.now();
+    let queueIndex = 0;
+    let active = [];
+
+    const step = () => {
+      const elapsed = performance.now() - startedAt;
+
+      while (queueIndex < queue.length && queue[queueIndex].start <= elapsed) {
+        const glyph = queue[queueIndex];
+        glyph.endsAt = elapsed + glyph.duration;
+        glyph.nextFlicker = elapsed;
+        glyph.el.classList.remove("is-pending", "is-gone");
+        glyph.el.classList.add("is-glitching");
+        active.push(glyph);
+        queueIndex += 1;
+      }
+
+      active = active.filter((glyph) => {
+        if (elapsed >= glyph.endsAt) {
+          glyph.el.textContent = glyph.character;
+          glyph.el.classList.remove("is-glitching");
+          if (mode === "out") {
+            glyph.el.classList.add("is-gone");
+          }
+          return false;
+        }
+        if (elapsed >= glyph.nextFlicker) {
+          glyph.el.textContent = GLYPHS.charAt(Math.floor(Math.random() * GLYPHS.length));
+          glyph.nextFlicker = elapsed + FLICKER_MS;
+        }
+        return true;
+      });
+
+      if (queueIndex >= queue.length && !active.length) {
+        resolve();
+        return;
+      }
+      requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
+  });
+}
+
+// --- Flujo: sketch → texto de bienvenida → home ---
+
+const sketchEl = document.getElementById("sketch");
+const introSection = document.getElementById("intro-text");
+const introCopy = introSection.querySelector(".intro-copy");
+const introCta = introSection.querySelector(".intro-cta");
+const homeEl = document.getElementById("home");
+
+const introGlyphs = splitIntoGlyphs(introCopy, "is-pending");
+const homeGlyphs = Array.from(homeEl.querySelectorAll("[data-glitch]"))
+  .flatMap((element) => splitIntoGlyphs(element, "is-pending"));
+
+function revealIntroText(originX, originY) {
+  if (introSection.classList.contains("is-visible")) {
+    return;
+  }
+
+  introSection.classList.add("is-visible");
+  introSection.removeAttribute("aria-hidden");
+  sketchEl.style.cursor = "default";
+
+  runDomGlitch(introGlyphs, originX, originY, "in").then(() => {
+    introSection.classList.add("is-complete");
+    introCta.removeAttribute("tabindex");
+  });
+}
+
+function showHome() {
+  sketchEl.hidden = true;
+  homeEl.hidden = false;
+  if (typeof noLoop === "function") {
+    noLoop();
+  }
+}
+
+let leavingIntro = false;
+
+introCta.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (leavingIntro) {
+    return;
+  }
+  leavingIntro = true;
+
+  // Con teclado no hay coordenadas: se usa el centro de la flecha.
+  const ctaRect = introCta.getBoundingClientRect();
+  const originX = event.clientX || ctaRect.left + ctaRect.width / 2;
+  const originY = event.clientY || ctaRect.top + ctaRect.height / 2;
+
+  introSection.classList.remove("is-complete");
+  introCta.setAttribute("tabindex", "-1");
+  introCta.blur();
+
+  runDomGlitch(introGlyphs, originX, originY, "out").then(() => {
+    showHome();
+    history.replaceState(null, "", "#home");
+    runDomGlitch(homeGlyphs, originX, originY, "in");
+  });
+});
+
+// Volver al home desde otras páginas (index.html#home) salta la bienvenida.
+if (location.hash === "#home") {
+  phase = "done";
+  for (const glyph of homeGlyphs) {
+    glyph.el.classList.remove("is-pending");
+  }
+  showHome();
 }
