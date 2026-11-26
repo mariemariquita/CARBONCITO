@@ -50,23 +50,35 @@ body {
   font-weight: var(--display-font-weight);
 }
 
+
 .mitad {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: clamp(2rem, 5vw, 5rem);
-  text-transform: uppercase;
   text-decoration: none;
   flex-direction: column;}
 
 .mitad h2 {
+  text-transform: uppercase;
   margin-bottom: 1rem;
+}
+p {
+  max-width: 74ch;
+  margin: 0 auto;
 }
 
 .mitad p {
   opacity: 0;
   font-size: 1rem;
+  padding: 3rem;
+  /*  font-family: var(--text-font-family);
+  font-weight: var(--text-font-weight);
+  font-size: var(--text-font-size);
+  color: var(--text-color);
+  padding: 7rem;
+  text-align: center;*/
 }
 
 .mitad:hover p {
@@ -126,3 +138,4 @@ body:has(.derecha:hover) .izquierda {
   background: #e0ff00;
   color: #000;
 }
+
