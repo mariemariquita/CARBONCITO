@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><style>
+    #light-icon {
+      display: inline;
+    }
+    #dark-icon {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #light-icon {
+        display: none;
+      }
+      #dark-icon {
+        display: inline;
+      }
+    }
+  </style><g id="light-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1700)"><rect width="1000" height="1000" fill="#e0ff00"></rect><g transform="matrix(1.0211505814176123,0,0,1.0211505814176123,100.00000000000006,333.9864442260317)"><svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewBox="0 0 783.43 325.15" width="783.43" height="325.15"><g id="Layer_1-2" data-name="Layer 1">
+    <path d="M147.9,53.86h69.12V0H1.72v53.86h66.94v210.81H0v60.47h218.26v-60.47h-70.36V53.86ZM783.43,93.39V0h-223.65v325.15h223.65v-94.26h-53.3v33.73h-91.14v-81.88h78.69v-50.7h-78.69V60.53h91.14v32.86h53.3ZM277.93,325.15h223.1v-89.52h-57.99v35.29h-85.84V57.88h85.84v39.85h57.99V0h-223.1v325.15Z"></path>
+  </g></svg></g></g><defs><clipPath id="SvgjsClipPath1700"><rect width="1000" height="1000" x="0" y="0" rx="0" ry="0"></rect></clipPath></defs></svg></g><g id="dark-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1701)"><rect width="1000" height="1000" fill="#e0ff00"></rect><g transform="matrix(1.0211505814176123,0,0,1.0211505814176123,100.00000000000006,333.9864442260317)"><svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewBox="0 0 783.43 325.15" width="783.43" height="325.15"><g id="Layer_1-2" data-name="Layer 1">
+    <path d="M147.9,53.86h69.12V0H1.72v53.86h66.94v210.81H0v60.47h218.26v-60.47h-70.36V53.86ZM783.43,93.39V0h-223.65v325.15h223.65v-94.26h-53.3v33.73h-91.14v-81.88h78.69v-50.7h-78.69V60.53h91.14v32.86h53.3ZM277.93,325.15h223.1v-89.52h-57.99v35.29h-85.84V57.88h85.84v39.85h57.99V0h-223.1v325.15Z"></path>
+  </g></svg></g></g><defs><clipPath id="SvgjsClipPath1701"><rect width="1000" height="1000" x="0" y="0" rx="0" ry="0"></rect></clipPath></defs></svg></g></svg>

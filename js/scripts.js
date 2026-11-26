@@ -660,8 +660,14 @@ introCta.addEventListener("click", (event) => {
   });
 });
 
-// Volver al home desde otras páginas (index.html#home) salta la bienvenida.
+const isReload = performance.getEntriesByType("navigation")[0]?.type === "reload";
+
+if (location.hash === "#home" && isReload) {
+  history.replaceState(null, "", `${location.pathname}${location.search}`);
+}
+
 if (location.hash === "#home") {
+  // Volver al home desde otras páginas (index.html#home) salta la bienvenida.
   phase = "done";
   for (const glyph of homeGlyphs) {
     glyph.el.classList.remove("is-pending");
